@@ -1,0 +1,32 @@
+[mysql]
+host=99.48.58.95
+port=3306
+username = root
+password = mime@123
+db=spider
+
+[redis]
+host=99.48.58.244
+port=6379
+username=root
+password=mime@123
+db=10
+
+import configparser
+
+config = configparser.ConfigParser()
+config.read('config')
+mysql_host=config.get(section='mysql',option='host')
+mysql_port=config.getint('mysql','port')
+mysql_username=config.get('mysql','username')
+mysql_password=config.get('mysql','password')
+mysql_db=config.get('mysql','db')
+print(mysql_host,mysql_port,mysql_username,mysql_password,mysql_db)
+
+redis_host=config.get(section='redis',option='host')
+redis_port=config.getint('redis','port')
+redis_username=config.get('redis','username')
+redis_password=config.get('redis','password')
+redis_db=config.get('redis','db')
+print(redis_host,redis_port,redis_username,redis_password,redis_db)
+
